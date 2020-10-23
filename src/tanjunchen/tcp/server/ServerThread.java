@@ -18,7 +18,7 @@ public class ServerThread extends Thread {
     }
 
     public String response() {
-        String[] str = {"A", "B", "C"};
+        String[] str = {"Server-A", "Server-B", "Server-C"};
         int length = str.length;
         Random random = new Random();
         int number = random.nextInt(length);
@@ -39,13 +39,13 @@ public class ServerThread extends Thread {
 
             String info;
             while ((info = br.readLine()) != null) {
-                System.out.println(" Server Receive: " + info);
+                System.out.println(" 服务端收到: " + info);
             }
             socket.shutdownInput();
 
             os = socket.getOutputStream();
             pw = new PrintWriter(os);
-            pw.write("The Response of Server: " + response());
+            pw.write(" 服务端响应: " + response());
             pw.flush();
         } catch (Exception e) {
             e.printStackTrace();

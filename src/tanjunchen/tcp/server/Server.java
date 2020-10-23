@@ -14,18 +14,17 @@ public class Server {
         try {
             ServerSocket serverSocket = new ServerSocket(8888);
             Socket socket;
-            System.out.println(" ......Starting Server...... ");
+            System.out.println(" ......启动服务端...... ");
             int count = 0;
             while (true) {
                 socket = serverSocket.accept();
                 ServerThread serverThread = new ServerThread(socket);
                 serverThread.start();
                 count++;
-                System.out.print("The Number of Client: " + count);
+                System.out.print("客户端数量: " + count);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 }
